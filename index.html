@@ -82,11 +82,11 @@ input[type=file]{display:none}
 <body>
 <div class="wrap">
   <header>
-    <div class="eyebrow">The workshop, not the courtroom</div>
+    <div class="eyebrow">A private practice ledger</div>
     <h1>Practice ledger</h1>
     <p class="epigraph" id="epigraph"></p>
   </header>
-  <p class="note" id="intro-note">No streaks, no percentages, no scores — by design. A missed week is information, not a verdict.</p>
+  <p class="note" id="intro-note">No streaks, no percentages, no scores — by design. A missed week is information, not a failure.</p>
   <div id="capture"></div>
   <main id="main"></main>
   <footer>Who is this for?</footer>
@@ -104,36 +104,36 @@ input[type=file]{display:none}
 </nav>
 <script>
 const PRACTICES=[
- {id:"morning",cadence:"daily",name:"Morning rehearsal",src:"Marcus Aurelius",desc:"Rehearse today's likely contempt before meeting it. None can injure without my judgment's cooperation."},
+ {id:"morning",cadence:"daily",name:"Morning rehearsal",src:"Marcus Aurelius",desc:"Rehearse today's likely friction before meeting it. None of it can injure without my judgment's cooperation."},
  {id:"sitting",cadence:"daily",name:"Sitting",src:"Zen",desc:"Ten minutes watching the machinery arise and pass. No streaks, no metric."},
  {id:"apprentice",cadence:"weekly",name:"Apprentice hour",src:"Aristotle / Zen",desc:"One hour of fundamentals done badly in private. Re-derive, re-implement, reprove."},
  {id:"utterance",cadence:"weekly",name:"Half-baked utterance",src:"Beauvoir / Camus",desc:"The 70%-formed thought said aloud, in a venue that counts, without the hedge."},
  {id:"taste",cadence:"weekly",name:"Taste journal",src:"MacIntyre",desc:"One excellent thing in someone else's work, and why — in terms of the craft."},
- {id:"vertical",cadence:"weekly",name:"Vertical comparison",src:"Nietzsche",desc:"Read the field's best, living or dead. What did they see that I would have missed? The gap is a direction, not a verdict."},
- {id:"premeditatio",cadence:"weekly",name:"Premeditatio malorum",src:"Stoic",desc:"Imagine the feared verdicts in detail. Notice the imaginer remains intact."},
- {id:"viewabove",cadence:"weekly",name:"View from above",src:"Marcus Aurelius",desc:"This verdict at the scale of a career; the tribunal at the scale of a century."},
+ {id:"vertical",cadence:"weekly",name:"Vertical comparison",src:"Nietzsche",desc:"Read the field's best, living or dead. What did they see that I would have missed? The gap is a direction, not a ranking."},
+ {id:"premeditatio",cadence:"weekly",name:"Premeditatio malorum",src:"Stoic",desc:"Imagine the feared outcomes in detail. Notice the imaginer remains intact."},
+ {id:"viewabove",cadence:"weekly",name:"View from above",src:"Marcus Aurelius",desc:"Today's setback at the scale of a career; today's critics at the scale of a century."},
  {id:"uptake",cadence:"monthly",name:"Uptake ledger",src:"Beauvoir",desc:"One concrete thing someone can now do because of your work. Capacities, not citations."},
  {id:"praisefast",cadence:"monthly",name:"Praise-fast day",src:"Stoic",desc:"One day without seeking any evaluative signal. What the hand reaches for is data."},
  {id:"offrecord",cadence:"monthly",name:"One thing off the record",src:"Control condition",desc:"Touched the work that can never be mentioned, cited, or CV'd. Its only metric is that it exists."},
- {id:"roles",cadence:"quarterly",name:"Role audit",src:"Epictetus",desc:"Each role described entirely in actions you control. Rewrite anything with a verdict in it."},
- {id:"rubric",cadence:"quarterly",name:"Craftsman's rubric review",src:"Aristotle / MacIntyre",desc:"Re-grade recent work against your private rubric. The divergence from the verdicts is the data."},
+ {id:"roles",cadence:"quarterly",name:"Role audit",src:"Epictetus",desc:"Each role described entirely in actions you control. Rewrite anything that depends on reception."},
+ {id:"rubric",cadence:"quarterly",name:"Craftsman's rubric review",src:"Aristotle / MacIntyre",desc:"Re-grade recent work against your private rubric. Divergence from external reception is the data."},
  {id:"mastery",cadence:"quarterly",name:"Teaching as mastery test",src:"Aristotle / Beauvoir",desc:"Rebuild the explanation you teach least well until a failing student can succeed."},
- {id:"brother",cadence:"quarterly",name:"Brother audit review",src:"—",desc:"Which tracked peers are real competitors, and which were drafted into a re-enactment?"},
- {id:"curiosity",cadence:"quarterly",name:"Curiosity docket review",src:"Energeia",desc:"Is ten percent of research time still on problems that merely itch?"},
+ {id:"brother",cadence:"quarterly",name:"Comparison audit",src:"—",desc:"Which tracked peers are you genuinely competing with, and which are you measuring against out of old habit?"},
+ {id:"curiosity",cadence:"quarterly",name:"Curiosity list review",src:"Energeia",desc:"Is ten percent of research time still on problems that merely itch?"},
  {id:"uncertified",cadence:"yearly",name:"Uncertified publication",src:"Beauvoir / Nietzsche",desc:"Something into the world on your signature alone, outside your certified domain."}
 ];
 const EVENTS=[
- {id:"hearing",name:"Appointment hearing",hint:"Anger flared. Would I appoint this judge?"},
- {id:"verdict",name:"Verdict logged",hint:"Acceptance or rejection — and where the feeling actually sits."},
+ {id:"hearing",name:"Opinion check",hint:"Anger flared at condescension. Do I actually respect this person's judgment?"},
+ {id:"verdict",name:"Outcome logged",hint:"Acceptance or rejection — and where the feeling actually sits."},
  {id:"submission",name:"Submission boundary",hint:"The quality was mine; the outcome is not. The project ends here."},
- {id:"pastverdict",name:"Worked past the verdict",hint:"Improved accepted work no reviewer will re-score."},
+ {id:"pastverdict",name:"Worked past the outcome",hint:"Improved accepted work no reviewer will re-score."},
  {id:"sealoff",name:"Advised with the seal off",hint:"Said 'I don't know' in full sentences in front of a student."},
  {id:"recurrence",name:"Recurrence test",hint:"A big choice, tested with no spectators in the criterion."},
  {id:"twohandles",name:"Two handles",hint:"A slight arrived. Named both handles; chose the one that carries."},
- {id:"custody",name:"Custody question",hint:"Noticed who had custody of my mind — and repossessed it."},
+ {id:"custody",name:"Custody question",hint:"Noticed whose opinion was running my mind — and took it back."},
  {id:"reserve",name:"Reserve clause",hint:"A major ambition formed. Appended 'fate permitting' — aim kept, identification surrendered."},
  {id:"filter",name:"Excellence filter",hint:"Chose or declined a project: would doing it well matter if it could never be published?"},
- {id:"selfcompassion",name:"Self-compassion break",hint:"A verdict landed. Named the sting, refused the isolation, spoke to myself as I would to a student."}
+ {id:"selfcompassion",name:"Self-compassion break",hint:"A rejection or criticism landed. Named the sting, refused the isolation, spoke to myself as I would to a student."}
 ];
 const EPIGRAPHS=[
  "The struggle itself toward the heights is enough. — Camus",
@@ -192,7 +192,7 @@ function renderToday(){
   const done=PRACTICES.filter(p=>isDone(p)&&p.cadence==="daily");
   let h="";
   if(due.length===0){
-    h+=`<div class="allclear">Nothing due. The court is adjourned; the workshop is open anyway.</div>`;
+    h+=`<div class="allclear">Nothing due. The day is yours.</div>`;
   }else{
     h+=`<section><p class="group-label">Due — across all cycles</p><div class="card">`;
     ["daily","weekly","monthly","quarterly","yearly"].forEach(c=>{
@@ -234,13 +234,13 @@ function renderJournal(){
     <button class="act" onclick="openForm('note')">Add note</button></div>
     <div id="formSlot">${form?formHTML():""}</div>`;
   if(!state.logs.length){
-    h+=`<div class="empty">The docket is empty. The court is adjourned. Good.</div>`;
+    h+=`<div class="empty">Nothing logged yet. A quiet record is a fine record.</div>`;
   }else{
     h+=`<div class="card">`;
     state.logs.forEach(l=>{
       const kind=(EVENTS.find(e=>e.id===l.kind)||{}).name||(l.kind==="note"?"Note":l.kind);
       let pills="";
-      if(l.appointed!==undefined)pills+=`<span class="pill ${l.appointed?"":"clay"}">${l.appointed?"appointed judge":"no jurisdiction"}</span>`;
+      if(l.appointed!==undefined)pills+=`<span class="pill ${l.appointed?"":"clay"}">${l.appointed?"opinion respected":"opinion set aside"}</span>`;
       if(l.verdictType)pills+=`<span class="pill">${l.verdictType}</span>`;
       h+=`<div class="jrow"><div style="flex:1"><div class="jmeta"><span class="jkind">${kind}</span>${pills}
         <span class="jdate">${new Date(l.ts).toLocaleDateString()}</span></div>
@@ -256,8 +256,8 @@ function formHTML(){
   const name=(EVENTS.find(e=>e.id===form.kind)||{}).name||"Note";
   let h=`<div class="form"><div class="t">${name}</div>`;
   if(isH)h+=`<div class="choices">
-    <button class="act ${form.appointed===true?"sel":""}" onclick="setField('appointed',true)">Yes — their judgment counts</button>
-    <button class="act ${form.appointed===false?"sel":""}" onclick="setField('appointed',false)">No — never appointed</button></div>`;
+    <button class="act ${form.appointed===true?"sel":""}" onclick="setField('appointed',true)">Yes — I respect their judgment</button>
+    <button class="act ${form.appointed===false?"sel":""}" onclick="setField('appointed',false)">No — I don't</button></div>`;
   if(isV)h+=`<div class="choices">
     <button class="act ${form.verdictType==="acceptance"?"sel":""}" onclick="setField('verdictType','acceptance')">acceptance</button>
     <button class="act ${form.verdictType==="rejection"?"sel":""}" onclick="setField('verdictType','rejection')">rejection</button></div>`;
@@ -302,7 +302,7 @@ function render(){
   const cap=document.getElementById("capture");
   if(new Date().getDate()%5===0&&!captureDismissed){
     cap.innerHTML=`<div class="capture"><div class="t">Capture check</div>
-      <div class="b">Pause before checking anything today: are these practices still practices, or have they become exhibits?
+      <div class="b">Pause before checking anything today: are these practices still practices, or have they become performances?
       If the log has started feeling like a scorecard, that noticing is the exercise working.</div>
       <button class="act" style="margin-top:8px;border:none;color:var(--faint);padding:4px 8px" onclick="captureDismissed=true;render()">Noted</button></div>`;
   }else cap.innerHTML="";
