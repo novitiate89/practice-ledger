@@ -1,7 +1,7 @@
 {
   "name": "Practice ledger",
   "short_name": "Practice",
-  "description": "The workshop, not the courtroom. A private ledger for philosophical practices.",
+  "description": "A private ledger for daily philosophical practices.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
